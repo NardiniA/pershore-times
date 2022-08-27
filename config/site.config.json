@@ -1,9 +1,9 @@
 {
   "metaData": {
-    "title": "Qurno | Minimal NextJS Blog Template",
-    "description": "Qurno - a minimal nextjs blog template",
+    "title": "Pershore Times | Local News Online",
+    "description": "Pershore Times - you're local news online.",
     "author": "Antonio Nardini",
-    "keyword": "qurno, minimal, react, nextjs, blog, template",
+    "keyword": "pershore times, minimal, react, nextjs, blog, template",
     "ogImage": "https://qurno-nextjs.vercel.app/images/ogimage.jpg"
   },
   "baseURL": "https://qurno.preview.antonionardini.com/",
@@ -11,5 +11,5 @@
   "logoText": "Qurno",
   "favicon": "https://res.cloudinary.com/antonio-nardini/image/upload/v1661166119/favicon_kiwban.png",
   "postPerPage": 6,
-  "copyright": "© 2022 Qurno. All rights reserved."
+  "copyright": "© 2022 Pershore Times. All rights reserved."
 }
