@@ -32,6 +32,8 @@ sections:
   label: Papers
   create: documents
   match: "**/*"
+  templates:
+  - papers
 - type: heading
   label: CONFIG
 - type: document
