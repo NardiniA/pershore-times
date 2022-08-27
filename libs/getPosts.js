@@ -4,14 +4,14 @@ import matter from "gray-matter";
 import path from "path";
 import { formatAuthorName } from "./formatAuthorName";
 
-const blogDirFiles = fs.readdirSync(path.join("content/blog/posts"));
+const blogDirFiles = fs.readdirSync(path.join("content/blog"));
 const blogs = blogDirFiles.filter((f) => f.includes(".md"));
 
 export function getPosts() {
   const returnDirFiles = blogs.map((filename) => {
     const slug = filename.replace(".md", "");
     const dirFileContents = fs.readFileSync(
-      path.join("content/blog/posts", filename),
+      path.join("content/blog", filename),
       "utf8"
     );
 

@@ -29,7 +29,7 @@ export default function Blog({ authors, posts, currentPage, numberOfPages }) {
 }
 
 export async function getStaticPaths() {
-  const blogDirFiles = fs.readdirSync(path.join("content/blog/posts"));
+  const blogDirFiles = fs.readdirSync(path.join("content/blog"));
   const numberOfPages = Math.ceil(blogDirFiles.length / postConfig.postPerPage);
 
   let paths = [];
@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const blogDirFiles = fs.readdirSync(path.join("content/blog/posts"));
+  const blogDirFiles = fs.readdirSync(path.join("content/blog"));
   const blogs = blogDirFiles.filter((f) => f.includes(".md"));
 
   const returnDirFiles = getPosts();
