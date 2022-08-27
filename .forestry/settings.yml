@@ -27,6 +27,11 @@ sections:
   match: "**/*"
   templates:
   - pages
+- type: directory
+  path: content/papers
+  label: Papers
+  create: documents
+  match: "**/*"
 - type: heading
   label: CONFIG
 - type: document
