@@ -281,7 +281,7 @@ export default function PostPage({
 }
 
 export async function getStaticPaths() {
-  const blogDirFiles = fs.readdirSync(path.join("content/blog"));
+  const blogDirFiles = fs.readdirSync(path.join("content/blog/posts"));
   const blogs = blogDirFiles.filter((f) => f.includes(".md"));
 
   const paths = blogs.map((filename) => ({
@@ -298,7 +298,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const fileContents = fs.readFileSync(
-    path.join("content/blog", slug + ".md"),
+    path.join("content/blog/posts", slug + ".md"),
     "utf8"
   );
 

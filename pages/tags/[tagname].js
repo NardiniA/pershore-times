@@ -36,10 +36,10 @@ export default function TagSingle({ authors, posts, tag }) {
 }
 
 export async function getStaticPaths() {
-  const file = fs.readdirSync(path.join('content/blog'));
+  const file = fs.readdirSync(path.join('content/blog/posts'));
   const allTags = file.map((file) => {
     const dirFileContents = fs.readFileSync(
-      path.join('content/blog', file),
+      path.join('content/blog/posts', file),
       'utf-8'
     );
     const { data: frontmatter } = matter(dirFileContents);
@@ -63,10 +63,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const file = fs.readdirSync(path.join('content/blog'));
+  const file = fs.readdirSync(path.join('content/blog/posts'));
   const posts = file.map((file) => {
     const dirFileContents = fs.readFileSync(
-      path.join('content/blog', file),
+      path.join('content/blog/posts', file),
       'utf-8'
     );
     const { data: frontMatter } = matter(dirFileContents);
