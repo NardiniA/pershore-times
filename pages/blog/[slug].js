@@ -15,6 +15,8 @@ import {
   IconBrandTwitter,
   IconCalendarEvent,
   IconClock,
+  IconMail,
+  IconBrandWhatsapp,
 } from "@tabler/icons";
 import fs from "fs";
 import matter from "gray-matter";
@@ -155,6 +157,24 @@ export default function PostPage({
                     >
                       <i>
                         <IconBrandPinterest size={18} />
+                      </i>
+                    </a>
+                  </li>
+                  <li className="d-inline-block d-lg-block me-2 mb-2">
+                    <a
+                      href={`whatsapp://send?text=${title} - Pershore Times post. Check it out at: ${pageUrl}`}
+                    >
+                      <i>
+                        <IconBrandWhatsapp size={18} />
+                      </i>
+                    </a>
+                  </li>
+                  <li className="d-inline-block d-lg-block me-2 mb-2">
+                    <a
+                      href={`mailto:contact@antonionardini.com?subject=${title}&body=Check out this post at ${pageUrl}!`}
+                    >
+                      <i>
+                        <IconMail size={18} />
                       </i>
                     </a>
                   </li>
