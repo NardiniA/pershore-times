@@ -34,4 +34,5 @@ fields:
   name: file
   label: File
 pages:
+- content/papers/issue-1-may-2021.md
 - content/papers/june-2021.md
