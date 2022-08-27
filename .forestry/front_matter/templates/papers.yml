@@ -1,0 +1,16 @@
+---
+label: Papers
+hide_body: true
+fields:
+- type: text
+  name: issue
+  label: issue
+- type: text
+  name: title
+  label: title
+- type: text
+  name: date
+  label: date
+- type: file
+  name: file
+  label: file
