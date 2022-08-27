@@ -33,3 +33,5 @@ fields:
 - type: file
   name: file
   label: File
+pages:
+- content/papers/june-2021.md
