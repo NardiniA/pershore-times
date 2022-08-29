@@ -47,6 +47,10 @@
           "name": "Tags"
         },
         {
+          "link": "/author",
+          "name": "Authors"
+        },
+        {
           "link": "/blog/archive",
           "name": "Archive"
         },
