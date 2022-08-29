@@ -14,8 +14,6 @@ export default function Employers({ employers, jobs }) {
     jobCount[x] = (jobCount[x] || 0) + 1;
   });
 
-  console.log(jobCount);
-
   return (
     <Layout metaTitle="Our Employers | Pershore Times">
       <PageHeaderBlock title="Employer" />
