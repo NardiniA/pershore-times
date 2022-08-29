@@ -12,50 +12,29 @@
     },
     {
       "template": "nav-link",
-      "link": "/blog",
-      "name": "Blog"
-    },
-    {
-      "template": "nav-link",
-      "link": "/blog/archive",
-      "name": "Archive"
+      "link": "/newspapers",
+      "name": "Newspapers"
     },
     {
       "template": "nav-dropdown",
       "link": "#",
-      "name": "Pages",
+      "name": "Blog",
       "submenu": [
         {
-          "link": "/author",
-          "name": "Author"
-        },
-        {
-          "link": "/author/chris-impey",
-          "name": "Author Single"
-        },
-        {
-          "link": "/blog/elements",
-          "name": "Elements"
+          "link": "/categories",
+          "name": "Categories"
         },
         {
           "link": "/tags",
           "name": "Tags"
         },
         {
-          "link": "/categories",
-          "name": "Categories"
+          "link": "/blog/archive",
+          "name": "Archive"
         },
         {
-          "link": "/tags/machine",
-          "name": "Tags Single"
-        },
-        {
-          "link": "/categories/ai",
-          "name": "Categories Single"
-        },
-        {
-          "link": "/privacy",
-          "name": "Privacy"
+          "link": "/blog",
+          "name": "View Posts"
         }
       ]
     },
