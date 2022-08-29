@@ -66,7 +66,7 @@
       "name": "Vacancies",
       "submenu": [
         {
-          "link": "/tags",
+          "link": "/vacancies/tags",
           "name": "Tags"
         },
         {
