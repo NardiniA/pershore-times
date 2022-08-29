@@ -1,7 +1,7 @@
 {
-  "title" : "Get latest posts delivered right to your inbox",
-  "mailChimpFormAction" : "https://app.us8.list-manage.com/subscribe/post?u=0f9de18e4ced0f9e6acb0c10e&amp;id=681b8be1e2&amp;f_id=00b3b2e0f0",
-  "mailChimpFormName" : "b_0f9de18e4ced0f9e6acb0c10e_681b8be1e2",
-  "formPlaceholder" : "Your email address",
-  "formButtonLabel" : "Join today"
+  "title": "Get latest posts delivered right to your inbox",
+  "mailChimpFormAction": "https://app.us8.list-manage.com/subscribe/post?u=0f9de18e4ced0f9e6acb0c10e&amp;id=681b8be1e2&amp;f_id=00b3b2e0f0",
+  "mailChimpFormName": "b_0f9de18e4ced0f9e6acb0c10e_681b8be1e2",
+  "formPlaceholder": "Your email address",
+  "formButtonLabel": "Join today"
 }

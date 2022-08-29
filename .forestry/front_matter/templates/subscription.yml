@@ -36,3 +36,5 @@ fields:
   description: What the submit button, next to where the user puts their email, says.
   config:
     required: true
+pages:
+- config/subscription.json
