@@ -4,7 +4,7 @@ description: Among the rhetoric of climate change bingo and platitudes, there’
   term I’ve been hearing a lot at COP26 this week — green steel. But what is it, why
   does it matter, and what does it actually mean for us, the consumers and end-users?
 image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661184887/cop26_hsvafk.webp
-date: 2020-09-14
+date: "2020-09-14"
 author: content/author/thomas-macaulay.md
 categories:
 - Earth
