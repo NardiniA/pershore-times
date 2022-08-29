@@ -43,6 +43,8 @@ sections:
   label: Employers
   create: documents
   match: "**/*"
+  templates:
+  - employer
 - type: directory
   path: content/vacancies
   label: Jobs
