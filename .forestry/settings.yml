@@ -42,6 +42,10 @@ sections:
 - type: document
   path: config/menus.json
   label: Menus
+- type: document
+  path: config/subscription.json
+  label: Subscription
+  match: "**/*"
 upload_dir: ''
 public_path: ''
 front_matter_path: https://res.cloudinary.com/antonio-nardini/image/upload
