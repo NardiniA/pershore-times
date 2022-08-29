@@ -21,11 +21,11 @@
       "name": "Blog",
       "submenu": [
         {
-          "link": "/categories",
+          "link": "/blog/categories",
           "name": "Categories"
         },
         {
-          "link": "/tags",
+          "link": "/blog/tags",
           "name": "Tags"
         },
         {
