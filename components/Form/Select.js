@@ -9,19 +9,22 @@ const selectStyles = {
         transition: ".3s ease",
         padding: "12px 16px",
         height: "50px",
-        alignContent: "center"
+        alignContent: "center",
+        fontSize: "1rem",
     }),
     input: styles => ({
         ...styles,
         padding: "0px",
         margin: "0px",
         border: "0",
+        fontSize: "1rem",
     }),
     valueContainer: styles => ({
         ...styles,
         padding: "0px",
         margin: "0px",
         border: "0",
+        fontSize: "1rem"
     }),
     menu: styles => ({
         ...styles,
