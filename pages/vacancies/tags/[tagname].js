@@ -36,10 +36,10 @@ export default function TagSingle({ employers, jobs, tag }) {
 }
 
 export async function getStaticPaths() {
-  const file = fs.readdirSync(path.join('content/blog'));
+  const file = fs.readdirSync(path.join('content/vacancies'));
   const allTags = file.map((file) => {
     const dirFileContents = fs.readFileSync(
-      path.join('content/blog', file),
+      path.join('content/vacancies', file),
       'utf-8'
     );
     const { data: frontmatter } = matter(dirFileContents);
