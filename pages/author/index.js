@@ -15,7 +15,7 @@ export default function Authors({ authors, posts }) {
   });
 
   return (
-    <Layout metaTitle="Our Authors">
+    <Layout metaTitle="Our Authors | Pershore Times">
       <PageHeaderBlock title="Author" />
 
       <section className="section-sm pt-0">

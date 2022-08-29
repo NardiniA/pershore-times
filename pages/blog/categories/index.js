@@ -26,7 +26,7 @@ export default function Categories({ posts }) {
   });
 
   return (
-    <Layout metaTitle="Categories">
+    <Layout metaTitle="Categories | Pershore Times">
       <PageHeaderBlock title="Categories" />
 
       <div className="container">

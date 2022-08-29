@@ -29,7 +29,7 @@ export default function Archive({ papers, archive: { frontMatter } }) {
   const uniqueYear = [...new Set(paperYear)];
 
   return (
-    <Layout metaTitle={`${frontMatter.title} Papers`}>
+    <Layout metaTitle={`${frontMatter.title} Papers | Pershore Times`}>
       <PageHeaderTaxo title={frontMatter.title} />
 
       <section>

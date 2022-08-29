@@ -21,7 +21,7 @@ export default function AuthorSingle({
   });
 
   return (
-    <Layout>
+    <Layout metaTitle={title + " | Pershore Times"}>
       <section className="page-header section-sm">
         <div className="container">
           <div className="row justify-content-center">

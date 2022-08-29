@@ -18,7 +18,7 @@ export default function TagSingle({ authors, posts, tag }) {
     <Layout
       metaTitle={`Showing posts from - ${
         tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ')
-      }`}
+      } | Pershore Times`}
     >
       <div className="container">
         <PageHeaderTaxo title={tag} />

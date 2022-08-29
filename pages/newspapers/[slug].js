@@ -35,7 +35,7 @@ export default function NewspaperPage({
 
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}newspapers/${slug}`;
   return (
-    <Layout metaTitle={title}>
+    <Layout metaTitle={title + " | Pershore Times"}>
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-content-center">

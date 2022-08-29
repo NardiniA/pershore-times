@@ -9,7 +9,7 @@ import path from "path";
 
 export default function Newspaper({ papers, currentPage, numberOfPages }) {
   return (
-    <Layout metaTitle="All Newspapers">
+    <Layout metaTitle="All Newspapers | Pershore Times">
       <PageHeaderBlock title="All newspapers" />
 
       <div className="container">

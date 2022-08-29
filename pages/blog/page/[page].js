@@ -10,7 +10,7 @@ import path from "path";
 
 export default function Blog({ authors, posts, currentPage, numberOfPages }) {
   return (
-    <Layout metaTitle="All Posts">
+    <Layout metaTitle="All Posts | Pershore Times">
       <PageHeaderBlock title="All posts" />
 
       <div className="container">

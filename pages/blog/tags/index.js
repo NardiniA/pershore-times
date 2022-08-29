@@ -24,7 +24,7 @@ export default function Tags({ posts }) {
   });
 
   return (
-    <Layout metaTitle="All Tags">
+    <Layout metaTitle="All Tags | Pershore Times">
       <PageHeaderBlock title="All tags" />
 
       <div className="container">
