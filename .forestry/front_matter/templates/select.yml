@@ -1,4 +1,61 @@
 ---
 label: Select
 hide_body: true
-fields: []
+display_field: name
+fields:
+- name: name
+  type: text
+  config:
+    required: true
+  label: Name
+- name: id
+  type: text
+  config:
+    required: true
+  label: ID
+  description: Unique Identifier
+- name: placeholder
+  type: text
+  config:
+    required: true
+  label: Placeholder
+- name: options
+  type: field_group_list
+  fields:
+  - name: label
+    type: text
+    config:
+      required: true
+    label: Label
+    description: What appears in the select.
+  - name: value
+    type: text
+    config:
+      required: true
+    label: Value
+    description: The hidden value.
+  config:
+    min: 2
+    max: 
+    labelField: label
+  label: Options
+- name: config
+  type: field_group
+  config: {}
+  fields:
+  - name: required
+    type: field_group
+    config: {}
+    fields:
+    - name: value
+      type: boolean
+      label: Value
+      default: true
+    - name: message
+      type: text
+      config:
+        required: false
+      label: Message
+      default: This field is required.
+    label: Required
+  label: Configuration
