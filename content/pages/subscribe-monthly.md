@@ -78,8 +78,6 @@ sections:
   content: Fill out the form below to subscribe to the electronic copy of our monthly
     newspaper.
   contact_info:
-    title: Got any problems?<br>Contact us using our email or phone and we can sort
-      you out.
     email_address: office@pershoretimes.com
     phone_number: '01386 803803'
 

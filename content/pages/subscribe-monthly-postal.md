@@ -138,8 +138,6 @@ sections:
     WR10 1DT** - cheques payable to Hughes & Company - Card payments can be taken
     by telephone: [01386 803803](tel:01386803803 \"Pershore Times Office\")"
   contact_info:
-    title: Any problems or need to sort payment?<br>Use our email or phone number
-      to get in touch.
     email_address: office@pershoretimes.com
     phone_number: '01386 803803'
 

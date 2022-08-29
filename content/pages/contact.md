@@ -6,7 +6,6 @@ sections:
   title: Contact
 - template: contact
   contact_info:
-    title: Hate forms?<br>Write an email or make a call
     email_address: contact@antonionardini.com
     phone_number: '07899 743854'
   title: Contact Qurno

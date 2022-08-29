@@ -1,16 +1,17 @@
 import { sortByIssue } from "@/utils/sortByIssue";
 import fs from "fs";
 import matter from "gray-matter";
-import path from "path";
+import { join } from "path";
 
-const paperDirFiles = fs.readdirSync(path.join("content/papers"));
+const paperDirFiles = fs.readdirSync(join("content/papers"));
 const papers = paperDirFiles.filter((f) => f.includes(".md"));
 
 export function getPapers() {
+  console.log(papers);
   const returnDirFiles = papers.map((filename) => {
     const slug = filename.replace(".md", "");
     const dirFileContents = fs.readFileSync(
-      path.join("content/papers", filename),
+      join("content/papers", filename),
       "utf8"
     );
 
