@@ -1,0 +1,19 @@
+---
+label: Subscription
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: textarea
+  name: mailChimpFormAction
+  label: mailChimpFormAction
+- type: text
+  name: mailChimpFormName
+  label: mailChimpFormName
+- type: text
+  name: formPlaceholder
+  label: formPlaceholder
+- type: text
+  name: formButtonLabel
+  label: formButtonLabel
