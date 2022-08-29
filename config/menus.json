@@ -11,9 +11,27 @@
       "name": "About"
     },
     {
-      "template": "nav-link",
-      "link": "/newspapers",
-      "name": "Newspapers"
+      "template": "nav-dropdown",
+      "link": "#",
+      "name": "Newspapers",
+      "submenu": [
+        {
+          "link": "/subscribe-monthly-postal",
+          "name": "Postal Subscribe"
+        },
+        {
+          "link": "/subscribe-monthly",
+          "name": "Email Subscribe"
+        },
+        {
+          "link": "/newspapers/archive",
+          "name": "Archive"
+        },
+        {
+          "link": "/newspapers",
+          "name": "View Papers"
+        }
+      ]
     },
     {
       "template": "nav-dropdown",
