@@ -10,7 +10,7 @@ import BlockZone from "@/components/BlockZone";
 export default function Slug({ frontMatter, posts, authors, papers }) {
     return (
       <Layout
-        metaTitle={frontMatter.title}
+        metaTitle={frontMatter.title + " | Pershore Times"}
         metaDescription={frontMatter.description}
       >
         <section>

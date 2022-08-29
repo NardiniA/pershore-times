@@ -14,21 +14,11 @@ const Contact = ({ section }) => {
               <p
                 className="mb-0"
                 dangerouslySetInnerHTML={{
-                  __html: marked.parseInline(section.content),
+                  __html: marked.parse(section.content),
                 }}
               ></p>
             </div>
             <div>
-              {section.contact_info?.contact_info_title && (
-                <h2
-                  className="h4 mb-3"
-                  dangerouslySetInnerHTML={{
-                    __html: marked.parseInline(
-                      section?.contact_info.contact_info_title
-                    ),
-                  }}
-                ></h2>
-              )}
               {section?.contact_info.email_address && (
                 <p className="mb-2 content">
                   <i className="me-2 d-inline-block mb-0">
@@ -47,7 +37,9 @@ const Contact = ({ section }) => {
                   >
                     <IconPhone size={17} />
                   </i>{" "}
-                  {section?.contact_info.phone_number}
+                  <a href={`tel:${section?.contact_info.phone_number}`}>
+                    {section?.contact_info.phone_number}
+                  </a>
                 </p>
               )}
             </div>
