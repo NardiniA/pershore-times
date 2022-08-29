@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./Input";
 import Textarea from "./Textarea";
+import Select from "./Select";
 import { IconBrandTelegram } from "@tabler/icons";
 
 const Form = ({ form }) => {
@@ -21,6 +22,8 @@ const Form = ({ form }) => {
                 return <Input field={field} key={field.template + index} />;
               case "textarea":
                 return <Textarea field={field} key={field.template + index} />;
+              case "select":
+                return <Select field={field} key={field.template + index} />;
             }
           })}
         <div className="col-12">
