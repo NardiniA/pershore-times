@@ -7,7 +7,6 @@ const paperDirFiles = fs.readdirSync(join("content/papers"));
 const papers = paperDirFiles.filter((f) => f.includes(".md"));
 
 export function getPapers() {
-  console.log(papers);
   const returnDirFiles = papers.map((filename) => {
     const slug = filename.replace(".md", "");
     const dirFileContents = fs.readFileSync(

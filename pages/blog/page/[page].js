@@ -21,7 +21,7 @@ export default function Blog({ authors, posts, currentPage, numberOfPages }) {
             </div>
           ))}
 
-          <Pagination currentPage={currentPage} numberOfPages={numberOfPages} />
+          <Pagination currentPage={currentPage} numberOfPages={numberOfPages} dir="blog" />
         </div>
       </div>
     </Layout>

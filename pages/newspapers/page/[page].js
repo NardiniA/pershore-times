@@ -20,7 +20,7 @@ export default function Newspaper({ papers, currentPage, numberOfPages }) {
             </div>
           ))}
 
-          <Pagination currentPage={currentPage} numberOfPages={numberOfPages} />
+          <Pagination currentPage={currentPage} numberOfPages={numberOfPages} dir="newspapers" />
         </div>
       </div>
     </Layout>

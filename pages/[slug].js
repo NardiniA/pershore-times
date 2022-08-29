@@ -6,8 +6,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import BlockZone from "@/components/BlockZone";
 
-export default function Slug({ frontMatter, posts, authors, newspapers }) {
-  console.log(newspapers);
+export default function Slug({ frontMatter, posts, authors }) {
     return (
       <Layout
         metaTitle={frontMatter.title + " | Pershore Times"}
