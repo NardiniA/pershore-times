@@ -12,7 +12,7 @@ const error_data = {
 
 export default function PageNotFound() {
   return (
-    <Layout metaTitle={"Page Not Found"}>
+    <Layout metaTitle={"Page Not Found | Pershore Times"}>
       <ErrorPage error={error_data} />
     </Layout>
   );

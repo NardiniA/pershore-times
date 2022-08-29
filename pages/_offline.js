@@ -15,7 +15,7 @@ const error_data = {
 
 export default function Offline() {
   return (
-    <Layout metaTitle={"Unable to connect"}>
+    <Layout metaTitle={"Unable to connect | Pershore Times"}>
       <ErrorPage error={error_data} />
     </Layout>
   );

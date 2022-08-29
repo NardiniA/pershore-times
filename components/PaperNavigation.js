@@ -1,4 +1,4 @@
-export default function PaperPagination({ currentPage, numberOfPages, setPageNumber }) {
+export default function PaperNavigation({ currentPage, numberOfPages, setPageNumber }) {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numberOfPages;
 

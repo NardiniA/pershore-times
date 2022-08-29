@@ -14,7 +14,7 @@ export default function Slug({ frontMatter, posts, authors }) {
       >
         <section>
           <div className="container">
-            <BlockZone sections={frontMatter?.sections} posts={posts} authors={authors} papers={newspapers} />
+            <BlockZone sections={frontMatter?.sections} posts={posts} authors={authors} />
           </div>
         </section>
       </Layout>

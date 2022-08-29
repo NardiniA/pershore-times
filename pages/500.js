@@ -15,7 +15,7 @@ const error_data = {
 
 export default function ServerError() {
   return (
-    <Layout metaTitle={"Server Error"}>
+    <Layout metaTitle={"Server Error | Pershore Times"}>
         <ErrorPage error={error_data} />
     </Layout>
   );

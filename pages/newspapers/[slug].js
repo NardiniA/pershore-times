@@ -17,7 +17,7 @@ import { useState } from "react";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-import PaperPagination from "@/components/PaperPagination";
+import PaperNavigation from "@/components/PaperNavigation";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -71,7 +71,7 @@ export default function NewspaperPage({
               >
                 <Page pageNumber={pageNumber} />
               </Document>
-              <PaperPagination
+              <PaperNavigation
                 currentPage={pageNumber}
                 numberOfPages={numPages}
                 setPageNumber={setPageNumber}
@@ -80,7 +80,9 @@ export default function NewspaperPage({
             <div className="col-lg-12"></div>
             <div className="col-lg-6 col-md-10">
               <div className="position-sticky" style={{ top: 150 + "px" }}>
-                <span className="d-block mb-3 small w-100 text-center">SHARE</span>
+                <span className="d-block mb-3 small w-100 text-center">
+                  SHARE
+                </span>
                 <ul className="social-share icon-box text-center">
                   <li className="d-inline-block me-2 mb-2">
                     <a
