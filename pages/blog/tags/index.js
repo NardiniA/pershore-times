@@ -31,7 +31,7 @@ export default function Tags({ posts }) {
         <div className="row g-4 justify-content-center text-center">
           {uniqueTags.map((tag, i) => (
             <div key={i} className="col-lg-4 col-md-6">
-              <Link href={`/tags/${tag.replace(/ /g, '-').toLowerCase()}`}>
+              <Link href={`/blog/tags/${tag.replace(/ /g, '-').toLowerCase()}`}>
                 <a className="p-4 rounded bg-white d-block is-hoverable">
                   <i className="mt-1 mb-2 d-inline-block">
                     <IconTags size={30} />

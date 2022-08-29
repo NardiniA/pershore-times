@@ -5,8 +5,9 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import BlockZone from "@/components/BlockZone";
+import { getPapers } from "@/libs/getPapers";
 
-export default function Slug({ frontMatter, posts, authors }) {
+export default function Slug({ frontMatter, posts, papers, authors }) {
     return (
       <Layout
         metaTitle={frontMatter.title}
@@ -14,7 +15,7 @@ export default function Slug({ frontMatter, posts, authors }) {
       >
         <section>
           <div className="container">
-            <BlockZone sections={frontMatter?.sections} posts={posts} authors={authors} />
+            <BlockZone sections={frontMatter?.sections} posts={posts} papers={papers} authors={authors} />
           </div>
         </section>
       </Layout>
@@ -48,6 +49,7 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       frontMatter,
+      papers: getPapers(),
       posts: getPosts(),
       authors: getAuthors(),
     },

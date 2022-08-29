@@ -34,7 +34,7 @@ export default function Categories({ posts }) {
           {uniqueCategories.map((category, i) => (
             <div key={i} className="col-lg-4 col-md-6">
               <Link
-                href={`/categories/${category
+                href={`/blog/categories/${category
                   .replace(/ /g, "-")
                   .toLowerCase()}`}
               >

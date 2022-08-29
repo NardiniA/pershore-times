@@ -4,6 +4,7 @@ body {
   font-family: $font-secondary;
   font-size: 16px;
   line-height: 1.65;
+  overflow-x: hidden;
   @include tablet {
     font-size: 15px;
   }
