@@ -1,19 +1,38 @@
 ---
 label: Subscription
 hide_body: true
+display_field: title
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
+  description: The title of the subscribe section in the footer (bottom of the webpage).
+  config:
+    required: true
 - type: textarea
   name: mailChimpFormAction
-  label: mailChimpFormAction
+  label: Mail Chimp Form Action
+  config:
+    required: true
+  description: Your MailChimp Form Action (where MailChimp Sign Up forms submit to)
+  default: ''
+  hidden: true
 - type: text
   name: mailChimpFormName
-  label: mailChimpFormName
+  label: Mail Chimp Form Name
+  description: Name of the MailChimp sign up form.
+  hidden: true
+  config:
+    required: true
 - type: text
   name: formPlaceholder
-  label: formPlaceholder
+  label: Email Input Placeholder
+  description: The placeholder for where the user puts their email address.
+  config:
+    required: true
 - type: text
   name: formButtonLabel
-  label: formButtonLabel
+  label: Email Button Label
+  description: What the submit button, next to where the user puts their email, says.
+  config:
+    required: true
