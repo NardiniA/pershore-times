@@ -1,5 +1,5 @@
 ---
-title: Home | Pershore Times
+title: Home
 description: This is a meta description example.
 sections:
 - template: banner

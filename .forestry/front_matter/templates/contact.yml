@@ -22,15 +22,6 @@ fields:
   type: field_group
   config: {}
   fields:
-  - name: title
-    type: textarea
-    default: ''
-    config:
-      required: true
-      wysiwyg: true
-      schema:
-        format: html
-    label: Title
   - name: email_address
     type: text
     config:
