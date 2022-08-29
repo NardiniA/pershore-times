@@ -1,10 +1,9 @@
 ---
-date: 2022-08-29
+date: "2022-08-29"
 employer: content/employers/bricklehampton-hall.md
-categories:
-- Part Time
 tags:
 - Care Industry
+- Part Time
 title: General Handyperson
 image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661166006/01_dlpnuc.png
 description: This would be a brief description of the job required.
