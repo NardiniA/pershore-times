@@ -1,9 +1,9 @@
 import React from "react";
-import Paper from "@/components/Paper";
+import Post from "@/components/Post";
 import Link from "next/link";
 import { IconNewSection } from "@tabler/icons";
 
-const RecentPapers = ({ section, papers }) => {
+const RecentPosts = ({ section, posts, authors }) => {
   return (
     <>
       <div className="row">
@@ -14,19 +14,19 @@ const RecentPapers = ({ section, papers }) => {
         </div>
       </div>
       <div className="row gy-5 gx-4 g-xl-5 mb-5">
-        {papers && papers.slice(0, 6).map((paper, i) => (
+        {posts && posts.slice(0, 6).map((post, i) => (
           <div key={i} className="col-lg-6">
-            <Paper paper={paper} />
+            <Post post={post} authors={authors} />
           </div>
         ))}
 
         <div className="col-12 text-center">
-          <Link href={`/newspapers`}>
-            <a className="btn btn-primary mt-5" aria-label="View All Papers">
+          <Link href={`/blog`}>
+            <a className="btn btn-primary mt-5" aria-label="View All Posts">
               <i className="me-2">
                 <IconNewSection size={16} />
               </i>
-              View All Papers
+              View All Posts
             </a>
           </Link>
         </div>
@@ -35,4 +35,4 @@ const RecentPapers = ({ section, papers }) => {
   );
 };
 
-export default RecentPapers;
+export default RecentPosts;

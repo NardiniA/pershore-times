@@ -1,7 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const BlockZone = ({ sections, posts, papers, authors }) => {
+const BlockZone = ({ sections, posts, authors }) => {
   return (
     sections &&
     sections.map((section, index) => {
@@ -28,17 +28,6 @@ const BlockZone = ({ sections, posts, papers, authors }) => {
               section={section}
               posts={posts}
               authors={authors}
-              key={id}
-            />
-          );
-        case "recent-papers":
-          const RecentPapers = dynamic(() =>
-            import("@/components/pages/RecentPapers")
-          );
-          return (
-            <RecentPapers
-              section={section}
-              papers={papers}
               key={id}
             />
           );
