@@ -61,6 +61,25 @@
       ]
     },
     {
+      "template": "nav-dropdown",
+      "link": "#",
+      "name": "Vacancies",
+      "submenu": [
+        {
+          "link": "/tags",
+          "name": "Tags"
+        },
+        {
+          "link": "/employer",
+          "name": "Employers"
+        },
+        {
+          "link": "/vacancies",
+          "name": "View Jobs"
+        }
+      ]
+    },
+    {
       "template": "nav-link",
       "link": "/contact",
       "name": "Contact"
