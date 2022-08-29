@@ -1,5 +1,5 @@
 export default (req, res) => {
-    console.log(req.event);
+    console.log(req);
 
     res.status(200).send({ message: "Received!" });
 }
