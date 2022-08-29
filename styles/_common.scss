@@ -512,6 +512,12 @@ ul, ol {
   padding: 8px 1px;
   .page-item {
     margin: 0 3px;
+    &-sm-none {
+      display: none;
+      @media screen and (min-width: 375px) {
+        display: inherit;
+      }
+    }
   }
   .page-link {
     padding: 0;
