@@ -1,6 +1,6 @@
 ---
 title: Home | Pershore Times
-description: This is a meta description
+description: This is a meta description example.
 sections:
 - template: banner
   title: Taking control of your daily life is easy when you know how!
