@@ -27,6 +27,7 @@ fields:
   - contact
   - detail
   - page-header
+  - recent-papers
   - recent-posts
   - writers
   config:
