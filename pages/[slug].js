@@ -1,13 +1,13 @@
 import Layout from "@/components/Layout";
 import { getPosts } from "@/libs/getPosts";
+import { getPaper } from "@/libs/getPaper";
 import { getAuthors } from "@/libs/getAuthors";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import BlockZone from "@/components/BlockZone";
-import { getPapers } from "@/libs/getPapers";
 
-export default function Slug({ frontMatter, posts, papers, authors }) {
+export default function Slug({ frontMatter, posts, authors, papers }) {
     return (
       <Layout
         metaTitle={frontMatter.title}
@@ -49,9 +49,9 @@ export async function getStaticProps({ params: { slug } }) {
   return {
     props: {
       frontMatter,
-      papers: getPapers(),
       posts: getPosts(),
       authors: getAuthors(),
+      papers: getPaper(),
     },
   };
 }
