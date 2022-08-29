@@ -37,6 +37,18 @@ sections:
   templates:
   - blog
 - type: heading
+  label: VACANCIES
+- type: directory
+  path: content/employers
+  label: Employers
+  create: documents
+  match: "**/*"
+- type: directory
+  path: content/vacancies
+  label: Jobs
+  create: documents
+  match: "**/*"
+- type: heading
   label: CONFIG
 - type: document
   path: config/site.config.json
