@@ -11,6 +11,7 @@ import {
   IconMail,
   IconBrandWhatsapp,
   IconNews,
+  IconDownload,
 } from "@tabler/icons";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useState } from "react";
@@ -154,6 +155,16 @@ export default function NewspaperPage({
                     >
                       <i>
                         <IconMail size={18} />
+                      </i>
+                    </a>
+                  </li>
+                  <li className="d-inline-block me-2 mb-2">
+                    <a
+                      href={file}
+                      download={file}
+                    >
+                      <i>
+                        <IconDownload size={18} />
                       </i>
                     </a>
                   </li>
