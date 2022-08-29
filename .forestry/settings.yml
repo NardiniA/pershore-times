@@ -7,20 +7,6 @@ sections:
 - type: heading
   label: CONTENT
 - type: directory
-  path: content/author
-  label: Authors
-  create: documents
-  match: "**/*"
-  templates:
-  - author
-- type: directory
-  path: content/blog
-  label: Blog
-  create: documents
-  match: "**/*"
-  templates:
-  - blog
-- type: directory
   path: content/pages
   label: Pages
   create: documents
@@ -34,6 +20,22 @@ sections:
   match: "**/*"
   templates:
   - papers
+- type: heading
+  label: Blog
+- type: directory
+  path: content/author
+  label: Authors
+  create: documents
+  match: "**/*"
+  templates:
+  - author
+- type: directory
+  path: content/blog
+  label: Blog
+  create: documents
+  match: "**/*"
+  templates:
+  - blog
 - type: heading
   label: CONFIG
 - type: document
