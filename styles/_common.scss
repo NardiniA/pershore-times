@@ -521,6 +521,12 @@ ul, ol {
         display: inherit;
       }
     }
+    &-md-none {
+      display: none;
+      @media screen and (min-width: 525px) {
+        display: inherit;
+      }
+    }
   }
   .page-link {
     padding: 0;

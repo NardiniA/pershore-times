@@ -16,6 +16,12 @@ export default function PaperNavigation({ currentPage, numberOfPages, setPageNum
                   Prev
               </button>
             </li>
+
+            {(currentPage - 2 >= 1) && (
+              <li className="page-item page-item-md-none">
+                    <span className="page-link rounded" onClick={() => setPageNumber(currentPage - 2)}>{currentPage - 2}</span>
+                </li>
+            )}
             
             {!isFirst  && (
                 <li className="page-item page-item-sm-none">
@@ -30,6 +36,12 @@ export default function PaperNavigation({ currentPage, numberOfPages, setPageNum
             {!isLast && (
                 <li className="page-item page-item-sm-none">
                     <span className="page-link rounded" onClick={() => setPageNumber(currentPage + 1)}>{currentPage + 1}</span>
+                </li>
+            )}
+
+            {(currentPage + 2 <= numberOfPages) && (
+              <li className="page-item page-item-md-none">
+                    <span className="page-link rounded" onClick={() => setPageNumber(currentPage + 2)}>{currentPage + 2}</span>
                 </li>
             )}
 
