@@ -1,5 +1,5 @@
 export const readingTime = (content) => {
-  const WPS = 275 / 60;
+  const WPS = 250 / 60;
 
   var images = 0;
   const regex = /\w/;
