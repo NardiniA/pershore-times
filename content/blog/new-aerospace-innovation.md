@@ -1,5 +1,5 @@
 ---
-date: ! '''2022-08-30'''
+date: ! '''2022-08-29'''
 author: content/author/emma-hazel.md
 categories:
 - Tech
