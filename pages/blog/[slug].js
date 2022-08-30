@@ -8,15 +8,8 @@ import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
 import {
   IconArrowUpRight,
-  IconBrandFacebook,
-  IconBrandLinkedin,
-  IconBrandPinterest,
-  IconBrandReddit,
-  IconBrandTwitter,
   IconCalendarEvent,
   IconClock,
-  IconMail,
-  IconBrandWhatsapp,
 } from "@tabler/icons";
 import fs from "fs";
 import matter from "gray-matter";
@@ -24,6 +17,7 @@ import { marked } from "marked";
 import Image from "next/image";
 import Link from "next/link";
 import path from "path";
+import Share from "@/components/Share";
 
 export default function PostPage({
   slug,
@@ -102,84 +96,7 @@ export default function PostPage({
               </div>
             </div>
             <div className="col-lg-2 post-share-block order-1 order-lg-0 mt-5 mt-lg-0">
-              <div className="position-sticky" style={{ top: 150 + "px" }}>
-                <span className="d-inline-block mb-3 small">SHARE</span>
-                <ul className="social-share icon-box">
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`https://twitter.com/intent/tweet?text=${title}&url=${pageUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandTwitter size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`https://www.facebook.com/sharer.php?u=${pageUrl}&quote=${title}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandFacebook size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandLinkedin size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`https://www.reddit.com/submit?url=${pageUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandReddit size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`https://www.pinterest.com/pin/create/button/?&text=${title}&url=${pageUrl}&description=${title}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i>
-                        <IconBrandPinterest size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`whatsapp://send?text=${title} - Pershore Times post. Check it out at: ${pageUrl}`}
-                    >
-                      <i>
-                        <IconBrandWhatsapp size={18} />
-                      </i>
-                    </a>
-                  </li>
-                  <li className="d-inline-block d-lg-block me-2 mb-2">
-                    <a
-                      href={`mailto:contact@antonionardini.com?subject=${title}&body=Check out this post at ${pageUrl}!`}
-                    >
-                      <i>
-                        <IconMail size={18} />
-                      </i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              <Share title={title} pageUrl={pageUrl} />
             </div>
             <div className="col-lg-8 post-content-block order-0 order-lg-2">
               <div
