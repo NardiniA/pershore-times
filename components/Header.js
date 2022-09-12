@@ -79,8 +79,8 @@ export default function Header() {
                   <a className="navbar-brand font-weight-bold d-flex mb-0">
                     <Image
                       className="img-fluid"
-                      width={110}
-                      height={35}
+                      width={192}
+                      height={27}
                       src={siteConfig.logo}
                       alt={siteConfig.logoText}
                       layout="fixed"
