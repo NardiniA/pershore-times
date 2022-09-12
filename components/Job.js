@@ -17,23 +17,6 @@ export default function Job({
     <>
       <article className="card post-card h-100 border-0 bg-transparent">
         <div className="card-body">
-          <Link href={`/vacancies/${slug}`}>
-            <a className="d-block" title={title}>
-              <div className="post-image position-relative">
-                <Image
-                  className="rounded"
-                  src={image}
-                  alt={title}
-                  width={`790`}
-                  height={`500`}
-                  layout="responsive"
-                  placeholder="blur"
-                  blurDataURL={image}
-                />
-              </div>
-            </a>
-          </Link>
-
           <ul className="card-meta list-inline mb-3">
             <li className="list-inline-item mt-2">
               <i className="me-2">
