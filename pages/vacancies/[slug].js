@@ -25,7 +25,7 @@ export default function JobPage({
 }) {
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}vacancies/${slug}`;
   return (
-    <Layout metaTitle={title} metaDescription={description} ogImage={image}>
+    <Layout metaTitle={title + " | Pershore Times Jobs"} metaDescription={description} ogImage={image}>
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-content-center">
