@@ -50,6 +50,8 @@ sections:
   label: Jobs
   create: documents
   match: "**/*"
+  templates:
+  - vacancies
 - type: heading
   label: CONFIG
 - type: document
