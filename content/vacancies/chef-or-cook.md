@@ -26,5 +26,5 @@ Bricklehampton Hall Nursing Home, Bricklehampton Hall, Nr. Pershore, WR10 3HQ.
 
 #### Contact Us
 
-* [01386 710573](tel:01386 710573 "Phone Us")
+* [01386 710573](tel:01386710573 "Phone Us")
 * [www.bricklehamptonhall.co.uk](www.bricklehamptonhall.co.uk "Visit our website")
