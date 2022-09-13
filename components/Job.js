@@ -1,7 +1,6 @@
 import { formatDate } from "@/utils/formatDate";
-import { readingTime } from "@/utils/readingTime";
 import { truncateString } from "@/utils/truncateString";
-import { IconCalendarEvent, IconClock } from "@tabler/icons";
+import { IconCalendarEvent } from "@tabler/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +14,7 @@ export default function Job({
 }) {
   return (
     <>
-      <article className="card post-card h-100 border-0 bg-transparent">
+      <article className="card post-card h-100 border-0 bg-white" style={{ padding: "30px" }}>
         <div className="card-body">
           <ul className="card-meta list-inline mb-3">
             <li className="list-inline-item mt-2">
