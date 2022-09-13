@@ -73,19 +73,7 @@ export default function JobPage({
                 </ul>
               </div>
             </div>
-            <div className="col-lg-12">
-              <div className="mb-5 text-center post-deatils-image">
-                <Image
-                  className="rounded w-100"
-                  src={image}
-                  alt={title}
-                  width={`1120`}
-                  height={`595`}
-                  placeholder="blur"
-                  blurDataURL={image}
-                />
-              </div>
-            </div>
+            <div className="col-lg-12 mb-3"></div>
             <div className="col-lg-2 post-share-block order-1 order-lg-0 mt-5 mt-lg-0">
               <Share title={title} pageUrl={pageUrl} />
             </div>
