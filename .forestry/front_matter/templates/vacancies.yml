@@ -45,4 +45,5 @@ fields:
   default: []
   label: Tags
 pages:
+- content/vacancies/chef-or-cook.md
 - content/vacancies/general-handyperson.md
