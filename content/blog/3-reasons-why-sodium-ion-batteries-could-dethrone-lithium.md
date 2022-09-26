@@ -4,8 +4,8 @@ description: Lithium-ion batteries have played a vital role in the development o
   electric vehicles and we love them for that. But at the same time, lithium is expensive
   to produce, unstable in high temperatures, and a finite resource whose mining often
   comes with supply chain problems.
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661435753/lithium_yn5otb.webp
-date: "2019-01-10"
+image: /v1661435753/lithium_yn5otb.webp
+date: 2019-01-10T12:00
 author: content/author/emma-hazel.md
 categories:
 - AI

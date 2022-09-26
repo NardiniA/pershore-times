@@ -2,8 +2,8 @@
 title: Everything you wanted to know about the metaverse
 description: In the wake of Facebook rebranding as Meta, reflecting its focus on the
   “metaverse”, Microsoft has now announced it, too, will launch into this space.
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661184887/vr_iavgze.webp
-date: "2021-11-16"
+image: /v1661184887/vr_iavgze.webp
+date: 2021-11-16T12:00
 author: content/author/emma-hazel.md
 categories:
 - Earth

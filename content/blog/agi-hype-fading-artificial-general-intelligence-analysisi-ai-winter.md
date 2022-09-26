@@ -4,8 +4,8 @@ description: While futurists and fundraisers used to make bullish predictions ab
   artificial general intelligence, they’ve become quieter lately. Peter Thiel — the
   tech billionaire and rumored vampire — says Silicon Valley big brains have lost
   enthusiasm for AGI.
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661184887/train_ziqjwr.webp
-date: "2021-12-05"
+image: /v1661184887/train_ziqjwr.webp
+date: 2021-12-05T12:00
 author: content/author/thomas-macaulay.md
 categories:
 - AI

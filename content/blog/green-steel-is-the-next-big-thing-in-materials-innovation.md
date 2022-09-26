@@ -3,8 +3,8 @@ title: Why everyone is talking about ‘green steel’ at COP26
 description: Among the rhetoric of climate change bingo and platitudes, there’s a
   term I’ve been hearing a lot at COP26 this week — green steel. But what is it, why
   does it matter, and what does it actually mean for us, the consumers and end-users?
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661184887/cop26_hsvafk.webp
-date: "2020-09-14"
+image: /v1661184887/cop26_hsvafk.webp
+date: 2020-09-14T12:00
 author: content/author/thomas-macaulay.md
 categories:
 - Earth

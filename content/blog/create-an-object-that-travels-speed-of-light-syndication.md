@@ -5,8 +5,8 @@ description: Light is fast. In fact, it is the fastest thing that exists, and a 
   miles per second (300,000 kilometers per second) and can go from the Earth to the
   Moon in just over a second. Light can streak from Los Angeles to New York in less
   than the blink of an eye.
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661184887/blub_m5p5es.webp
-date: "2021-11-17"
+image: /v1661184887/blub_m5p5es.webp
+date: 2021-11-17T12:00
 author: content/author/chris-impey.md
 categories:
 - Earth

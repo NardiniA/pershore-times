@@ -1,5 +1,5 @@
 ---
-date: 2022-09-01 10:00 PM
+date: 2022-09-01T12:00
 author: content/author/emma-hazel.md
 categories:
 - Tech
@@ -9,7 +9,7 @@ tags:
 title: New aerospace innovation
 description: Solar-powered aircraft and NHS treatment carrying drones are among latest
   innovations backed by £273 million of government and industry funding.
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661846423/aerospace-innovation-pt_tq9p7n.jpg
+image: /v1661846423/aerospace-innovation-pt_tq9p7n.jpg
 
 ---
 Solar-powered aircraft and NHS treatment carrying drones are among latest innovations backed by £273 million of government and industry funding. This is a package to help UK aerospace sector seize jobs and growth opportunities from the global green flight revolution and other emerging sectors like drone technology.

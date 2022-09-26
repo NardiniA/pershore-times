@@ -11,17 +11,17 @@ sections:
 
     I’ve included a plugin in the setup of this theme that will make adding columns to your pages and posts a piece of cake. Let creativity take control, and forget about the technical end of things, I’ve got your six.
   images:
-  - src: https://res.cloudinary.com/antonio-nardini/image/upload/v1661185163/about-01_vcpoyh.webp
+  - src: /v1661185163/about-01_vcpoyh.webp
     alt: Image 1
     width: '680'
     height: '380'
     size: Half
-  - src: https://res.cloudinary.com/antonio-nardini/image/upload/v1661185163/about-02_ad2xl5.webp
+  - src: /v1661185163/about-02_ad2xl5.webp
     alt: Image 2
     width: '460'
     height: '515'
     size: Quarter
-  - src: https://res.cloudinary.com/antonio-nardini/image/upload/v1661185163/about-03_xdauol.webp
+  - src: /v1661185163/about-03_xdauol.webp
     alt: Image 3
     width: '460'
     height: '444'

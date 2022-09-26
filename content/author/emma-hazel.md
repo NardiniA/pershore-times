@@ -1,6 +1,6 @@
 ---
 title: Emma Hazel
-image: https://res.cloudinary.com/antonio-nardini/image/upload/v1661447177/emma-hazel_lcxyys.webp
+image: /v1661447177/emma-hazel_lcxyys.webp
 
 ---
 Emma Hazel is a writer based in New York City. He's interested in all things tech, science, and photography related, and likes to yo-yo in his free time.

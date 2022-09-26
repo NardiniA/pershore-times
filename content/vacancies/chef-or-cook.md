@@ -1,5 +1,5 @@
 ---
-date: 2022-09-13 10:06 AM
+date: 2022-09-13T12:00
 employer: content/employers/bricklehampton-hall.md
 tags:
 - Full Time

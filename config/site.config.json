@@ -7,9 +7,9 @@
     "ogImage": "https://qurno-nextjs.vercel.app/images/ogimage.jpg"
   },
   "baseURL": "https://qurno.preview.antonionardini.com/",
-  "logo": "https://res.cloudinary.com/antonio-nardini/image/upload/v1662975682/pershore_times_logo-removebg-preview_oektok.png",
-  "logoText": "Qurno",
-  "favicon": "https://res.cloudinary.com/antonio-nardini/image/upload/v1661166119/favicon_kiwban.png",
+  "logo": "/v1662975682/pershore_times_logo-removebg-preview_oektok.png",
+  "logoText": "Pershore Times",
+  "favicon": "/v1663068921/favicon_duxwpt.ico",
   "postPerPage": 6,
   "copyright": "© 2022 Pershore Times. All rights reserved."
 }
