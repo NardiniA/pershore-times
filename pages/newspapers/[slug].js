@@ -73,10 +73,7 @@ export default function NewspaperPage({
                 </div>
 
                 <Document
-                  file={
-                    "https://res.cloudinary.com/antonio-nardini/image/upload" +
-                    file
-                  }
+                  file={`https://res.cloudinary.com/antonio-nardini/image/upload${file}`}
                   onLoadSuccess={onDocumentLoadSuccess}
                   onLoadError={(error) =>
                     console.error("React PDF Error: ", error)
