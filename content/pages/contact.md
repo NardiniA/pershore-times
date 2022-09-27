@@ -8,7 +8,7 @@ sections:
   contact_info:
     email_address: contact@antonionardini.com
     phone_number: '07899 743854'
-  title: Contact Qurno
+  title: Contact Pershore Times
   content: I'm here to help and answer any question you might have. I look forward
     to hearing from you
   form:
