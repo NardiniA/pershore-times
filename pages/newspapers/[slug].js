@@ -14,7 +14,7 @@ import {
   IconDownload,
 } from "@tabler/icons";
 import { Document, Page, pdfjs } from "react-pdf";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -27,12 +27,14 @@ export default function NewspaperPage({
   content,
   frontMatter: { title, issue, date, file },
 }) {
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
+  const [loaded, setLoaded] = useState(false);
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
 
-    function onDocumentLoadSuccess({ numPages }) {
-      setNumPages(numPages);
-    }
+  function onDocumentLoadSuccess({ numPages }) {
+    setLoaded(true);
+    setNumPages(numPages);
+  }
 
   let pageUrl = `${siteConfig.baseURL.replace(/\/$|$/, "/")}newspapers/${slug}`;
   return (
@@ -63,20 +65,31 @@ export default function NewspaperPage({
             </div>
             <div className="col-lg-12"></div>
             <div className="col-lg-6 col-md-10 mb-5">
-              <Document
-                file={file}
-                onLoadSuccess={onDocumentLoadSuccess}
-                onLoadError={(error) =>
-                  console.error("React PDF Error: ", error)
-                }
-              >
-                <Page pageNumber={pageNumber} />
-              </Document>
-              <PaperNavigation
-                currentPage={pageNumber}
-                numberOfPages={numPages}
-                setPageNumber={setPageNumber}
-              />
+              <div className={`paper-container ${loaded && "loaded"}`}>
+                <div className="paper-loader">
+                  <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20"></circle>
+                  </svg>
+                </div>
+
+                <Document
+                  file={
+                    "https://res.cloudinary.com/antonio-nardini/image/upload" +
+                    file
+                  }
+                  onLoadSuccess={onDocumentLoadSuccess}
+                  onLoadError={(error) =>
+                    console.error("React PDF Error: ", error)
+                  }
+                >
+                  <Page pageNumber={pageNumber} />
+                </Document>
+                <PaperNavigation
+                  currentPage={pageNumber}
+                  numberOfPages={numPages}
+                  setPageNumber={setPageNumber}
+                />
+              </div>
             </div>
             <div className="col-lg-12"></div>
             <div className="col-lg-6 col-md-10">
@@ -159,10 +172,7 @@ export default function NewspaperPage({
                     </a>
                   </li>
                   <li className="d-inline-block me-2 mb-2">
-                    <a
-                      href={file}
-                      download={file}
-                    >
+                    <a href={file} download={file}>
                       <i>
                         <IconDownload size={18} />
                       </i>

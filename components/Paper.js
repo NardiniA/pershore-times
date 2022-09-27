@@ -18,13 +18,13 @@ export default function Paper({
               <div className="post-image position-relative">
                 <Image
                   className="rounded"
-                  src="https://res.cloudinary.com/antonio-nardini/image/upload/v1661166006/01_dlpnuc.png"
+                  src="/v1661166006/01_dlpnuc.png"
                   alt={title}
                   width={`790`}
                   height={`500`}
                   layout="responsive"
                   placeholder="blur"
-                  blurDataURL="https://res.cloudinary.com/antonio-nardini/image/upload/v1661166006/01_dlpnuc.png"
+                  blurDataURL="/v1661166006/01_dlpnuc.png"
                 />
               </div>
             </a>
