@@ -48,4 +48,5 @@ fields:
   default: []
   label: Tags
 pages:
+- content/blog/gardening-tips.md
 - content/blog/new-aerospace-innovation.md
