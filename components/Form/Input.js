@@ -1,21 +1,16 @@
 import React from "react";
+import { formatSize } from "@/utils/formatSize";
 
 const Input = ({ field }) => {
   return (
-    <div className="col-md-12">
+    <div className={formatSize(field.Size)}>
       <input
-        type={field.type}
-        placeholder={field.placeholder}
+        type={field.Type}
+        placeholder={field.Placeholder}
         className="form-control"
-        name={field.name}
-        id={field.id}
-        required={field?.config.required}
-        minLength={
-          field?.config.minimum !== "0" ? field?.config.minimum : undefined
-        }
-        maxLength={
-          field?.config.maximum !== "0" ? field?.config.maximum : undefined
-        }
+        name={field.Name}
+        id={field.Identifier}
+        required={field.Required}
       />
     </div>
   );

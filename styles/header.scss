@@ -38,6 +38,13 @@
     &:hover {
       opacity: .8;
     }
+
+    @media screen and (max-width: 290px) {
+      > span {
+        width: 135px !important;
+        height: 24px !important;
+      }
+    }
   }
 
   .nav-item {

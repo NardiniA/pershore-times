@@ -1,22 +1,16 @@
-import fs from "fs";
-import { join } from "path";
-import matter from "gray-matter";
 import { getPosts } from "@/libs/getPosts";
-import { getAuthors } from "@/libs/getAuthors";
+import { getSingle } from "@/libs/getSingle";
+import { getConfig } from "@/libs/getConfig";
 import Slug from "./[slug]";
 
 export default Slug;
 
 export async function getStaticProps() {
-  const fileContents = fs.readFileSync(join("content/pages", "home.md"), "utf-8");
-
-  const { data: frontMatter } = matter(fileContents);
-
   return {
     props: {
-      frontMatter,
-      posts: getPosts(),
-      authors: getAuthors(),
+      data: await getSingle("home", `pages-${process.env.STRAPI_ADMIN_LOCALE}`),
+      posts: await getPosts(),
+      config: await getConfig(),
     },
   };
 }

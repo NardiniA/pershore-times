@@ -1,26 +1,26 @@
 import { sortByIssue } from "@/utils/sortByIssue";
-import fs from "fs";
-import matter from "gray-matter";
-import { join } from "path";
+import { formatPapers } from "@/utils/formatPapers";
 
-const paperDirFiles = fs.readdirSync(join("content/papers"));
-const papers = paperDirFiles.filter((f) => f.includes(".md"));
+export const getPapers = async () => {
+  const res = await fetch(
+    `${process.env.STRAPI_ADMIN_URL}/api/newspapers-${process.env.STRAPI_ADMIN_LOCALE}?populate=deep`
+  );
+  const papers = await res.json();
 
-export function getPapers() {
-  const returnDirFiles = papers.map((filename) => {
-    const slug = filename.replace(".md", "");
-    const dirFileContents = fs.readFileSync(
-      join("content/papers", filename),
-      "utf8"
-    );
+  if (papers?.data) {
+    const news = papers?.data.map((paper) => {
+      const { Issue, Date } = paper?.attributes;
+      const file = paper?.attributes?.File?.data?.attributes;
 
-    const { data: frontMatter, content } = matter(dirFileContents);
+      return {
+        issue: Issue,
+        date: Date,
+        title: `Issue ${Issue} - ${formatPapers(Date)}`,
+        file: file,
+      };
+    });
 
-    return {
-      slug,
-      frontMatter,
-      content,
-    };
-  });
-  return returnDirFiles.sort(sortByIssue);
-}
+    return news.sort(sortByIssue);
+  }
+  return [];
+};

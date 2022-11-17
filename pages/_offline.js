@@ -1,5 +1,6 @@
 import ErrorPage from "@/components/ErrorPage";
 import Layout from "@/components/Layout";
+import { getStaticProps } from "./404";
 
 const error_data = {
   title: "Offline",
@@ -13,10 +14,12 @@ const error_data = {
   },
 };
 
-export default function Offline() {
+export default function Offline({ config }) {
   return (
-    <Layout metaTitle={"Unable to connect | Pershore Times"}>
+    <Layout metaTitle={"Unable to connect | Upton Times"} config={config}>
       <ErrorPage error={error_data} />
     </Layout>
   );
 }
+
+export { getStaticProps }; 

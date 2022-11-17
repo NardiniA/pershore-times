@@ -71,7 +71,7 @@ const Share = ({ title, pageUrl }) => {
         </li>
         <li className="d-inline-block d-lg-block me-2 mb-2">
           <a
-            href={`whatsapp://send?text=${title} - Pershore Times post. Check it out at: ${pageUrl}`}
+            href={`whatsapp://send?text=${title} - Upton Times post. Check it out at: ${pageUrl}`}
           >
             <i>
               <IconBrandWhatsapp size={18} />

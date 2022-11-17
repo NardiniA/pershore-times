@@ -1,5 +1,6 @@
 import ErrorPage from "@/components/ErrorPage";
 import Layout from "@/components/Layout";
+import { getConfig } from "@/libs/getConfig";
 
 const error_data = {
   title: "404",
@@ -10,10 +11,18 @@ const error_data = {
   },
 };
 
-export default function PageNotFound() {
+export default function PageNotFound({ config }) {
   return (
-    <Layout metaTitle={"Page Not Found | Pershore Times"}>
+    <Layout metaTitle={"Page Not Found | Upton Times"} config={config}>
       <ErrorPage error={error_data} />
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      config: await getConfig(),
+    },
+  };
 }

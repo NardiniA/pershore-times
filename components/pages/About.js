@@ -10,7 +10,7 @@ const About = ({ section }) => {
           <h2
             className="text-dark mb-0"
             dangerouslySetInnerHTML={{
-              __html: marked.parseInline(section.title),
+              __html: marked.parse(section.Title),
             }}
           ></h2>
         </div>
@@ -18,11 +18,13 @@ const About = ({ section }) => {
 
       <div className="py-5 my-3">
         <div className="row g-4 justify-content-center text-center">
-          {section.images.map((item, i) => {
+          {section.Images.map((item, i) => {
             let grid_class;
-            if (item.size === "Half") {
+            if (item.Size === "Half") {
               grid_class = "col-lg-6";
-            } else if (item.size === "Quarter") {
+            } else if (item.Size === "Third") {
+              grid_class = "col-lg-4 col-6";
+            } else if (item.Size === "Quarter") {
               grid_class = "col-lg-3 col-6";
             } else {
               grid_class = "col-lg-12";
@@ -31,13 +33,19 @@ const About = ({ section }) => {
               <div key={i} className={`${grid_class} image-grid-${i + 1}`}>
                 <Image
                   className="w-100 h-auto rounded"
-                  src={item.src}
-                  alt={item.alt}
-                  width={item.width + "px"}
-                  height={item.height + "px"}
+                  src={item.Image.data.attributes.url.replace(
+                    "https://res.cloudinary.com/antonio-nardini/image/upload",
+                    ""
+                  )}
+                  alt={item.Image.data.attributes.alt}
+                  width={item.Image.data.attributes.width}
+                  height={item.Image.data.attributes.height}
                   layout="responsive"
                   placeholder="blur"
-                  blurDataURL={item.src}
+                  blurDataURL={item.Image.data.attributes.url.replace(
+                    "https://res.cloudinary.com/antonio-nardini/image/upload",
+                    ""
+                  )}
                 />
               </div>
             );
@@ -50,7 +58,7 @@ const About = ({ section }) => {
           <div
             className="content"
             dangerouslySetInnerHTML={{
-              __html: marked.parse(section.description),
+              __html: marked.parse(section.Description),
             }}
           ></div>
         </div>

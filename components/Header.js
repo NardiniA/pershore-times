@@ -1,14 +1,12 @@
 import Search from "@/components/Search";
 import { AppContext } from "@/components/UseContext";
-import Menu from "@/config/menus.json";
-import siteConfig from "@/config/site.config.json";
 import { IconMenu2, IconX } from "@tabler/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useContext, useEffect } from "react";
 
-export default function Header() {
+export default function Header({ menu, tags, config }) {
   const { toggleSearch } = useContext(AppContext);
   const [searchOpen, setSearchOpen] = toggleSearch;
   const router = useRouter();
@@ -79,13 +77,19 @@ export default function Header() {
                   <a className="navbar-brand font-weight-bold d-flex mb-0">
                     <Image
                       className="img-fluid"
-                      width={192}
-                      height={27}
-                      src={siteConfig.logo}
-                      alt={siteConfig.logoText}
+                      width={config?.Logo?.data?.attributes?.formats?.thumbnail.width / 1.7}
+                      height={config?.Logo?.data?.attributes?.formats?.thumbnail.height / 1.7}
+                      src={config?.Logo?.data?.attributes?.formats?.thumbnail.url.replace(
+                        "https://res.cloudinary.com/antonio-nardini/image/upload",
+                        ""
+                      )}
+                      alt={config?.LogoText}
                       layout="fixed"
                       placeholder="blur"
-                      blurDataURL={siteConfig.logo}
+                      blurDataURL={config?.Logo?.data?.attributes?.formats?.thumbnail.url.replace(
+                        "https://res.cloudinary.com/antonio-nardini/image/upload",
+                        ""
+                      )}
                     />
                   </a>
                 </Link>
@@ -139,40 +143,42 @@ export default function Header() {
 
                 <div className="collapse navbar-collapse" id="navHeader">
                   <ul className="navbar-nav mx-auto">
-                    {Menu.mainMenu.map((n, i) =>
-                      n.submenu ? (
+                    {menu.map((n, i) =>
+                      n?.attributes?.children?.data[0] ? (
                         <li
                           key={i}
                           className={`nav-item dropdown
-                          ${n.submenu
+                          ${n?.children?.data
                             .map((n) =>
-                              router.pathname == `${n.link}` ? `active` : ""
+                              router.pathname == `${n?.attributes.url}`
+                                ? `active`
+                                : ""
                             )
                             .join("")}
                         `}
                         >
                           <a
                             className="nav-link dropdown-toggle"
-                            href={n.link}
+                            href={n?.attributes.url}
                             role="button"
                             data-bs-toggle="dropdown"
                             aria-haspopup="true"
                             aria-expanded="false"
                           >
-                            {n.name}
+                            {n?.attributes.title}
                           </a>
                           <ul className="dropdown-menu">
-                            {n.submenu.map((n, i) => (
+                            {n?.attributes?.children?.data.map((n, i) => (
                               <li key={i}>
-                                <Link href={n.link}>
+                                <Link href={n?.attributes.url}>
                                   <a
                                     className={`dropdown-item ${
-                                      router.pathname == `${n.link}`
+                                      router.pathname == `${n?.attributes.url}`
                                         ? `active`
                                         : ""
                                     }`}
                                   >
-                                    {n.name}
+                                    {n?.attributes.title}
                                   </a>
                                 </Link>
                               </li>
@@ -183,11 +189,13 @@ export default function Header() {
                         <li
                           key={i}
                           className={`nav-item ${
-                            router.pathname == `${n.link}` ? `active` : ""
+                            router.pathname == `${n?.attributes.url}`
+                              ? `active`
+                              : ""
                           }`}
                         >
-                          <Link href={n.link}>
-                            <a className="nav-link">{n.name}</a>
+                          <Link href={n?.attributes.url}>
+                            <a className="nav-link">{n?.attributes.title}</a>
                           </Link>
                         </li>
                       )
@@ -236,7 +244,7 @@ export default function Header() {
         </div>
       </header>
 
-      <Search />
+      <Search tags={tags} />
     </>
   );
 }

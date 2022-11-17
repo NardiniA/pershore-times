@@ -1,24 +1,18 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
+export const getEmployers = async () => {
+    const res = await fetch(`${process.env.STRAPI_ADMIN_URL}/api/employers?populate=deep`);
+    const employers = await res.json();
 
-const employerDirFiles = fs.readdirSync(path.join("content/employers"));
-const employers = employerDirFiles.filter((f) => f.includes(".md"));
+    if (employers?.data) {
+        const employs = employers?.data.map((e) => {
+            const { Name, Slug, vacancies } = e?.attributes;
+            return {
+                name: Name,
+                slug: Slug,
+                vacancies: vacancies,
+            };
+        });
 
-export function getEmployers() {
-  const returnDirFiles = employers.map((filename) => {
-    const employerSlug = filename.replace(".md", "");
-    const dirFileContents = fs.readFileSync(
-      path.join("content/employers", filename),
-      "utf-8"
-    );
-    const { data: employerFrontMatter, content } = matter(dirFileContents);
-
-    return {
-      employerSlug,
-      employerFrontMatter,
-      employerContent: content,
-    };
-  });
-  return returnDirFiles;
+        return employs.sort();
+    }
+    return [];
 }

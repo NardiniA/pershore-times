@@ -1,43 +1,26 @@
 import Link from 'next/link';
 import PageHeaderBlock from '@/components/PageHeader';
 import Layout from '@/components/Layout';
-import { getJobs } from '@/libs/getJobs';
+import { getVacancyTags } from "@/libs/getVacancyTags";
 import { IconTags } from '@tabler/icons';
+import { getConfig } from "@/libs/getConfig";
 
-export default function Tags({ jobs }) {
-  const allTags = jobs.map((tag) => tag.frontMatter.tags);
-  const flatTags = allTags.flat();
-  const uniqueTags = [...new Set(flatTags)];
-
-  // count tag jobs
-  let tagArray = [];
-  uniqueTags.map((tag) => {
-    flatTags.map((t) => {
-      if (tag === t) {
-        tagArray.push(tag);
-      }
-    });
-  });
-  const jobCount = [];
-  tagArray.forEach((x) => {
-    jobCount[x] = (jobCount[x] || 0) + 1;
-  });
-
+export default function Tags({ tags, config }) {
   return (
-    <Layout metaTitle="All Tags | Pershore Times">
+    <Layout metaTitle="All Tags | Upton Times" config={config}>
       <PageHeaderBlock title="All tags" />
 
       <div className="container">
         <div className="row g-4 justify-content-center text-center">
-          {uniqueTags.map((tag, i) => (
+          {tags.map((tag, i) => (
             <div key={i} className="col-lg-4 col-md-6">
-              <Link href={`/vacancies/tags/${tag.replace(/ /g, '-').toLowerCase()}`}>
+              <Link href={`/vacancies/tags/${tag.slug}`}>
                 <a className="p-4 rounded bg-white d-block is-hoverable">
                   <i className="mt-1 mb-2 d-inline-block">
                     <IconTags size={30} />
                   </i>
-                  <span className="h4 mt-2 mb-3 d-block">{tag}</span>
-                  Total {jobCount[tag]} jobs
+                  <span className="h4 mt-2 mb-3 d-block">{tag.name}</span>
+                  Total {tag?.blogs.length} post{tag?.blogs.length > 1 && "s"}
                 </a>
               </Link>
             </div>
@@ -49,9 +32,11 @@ export default function Tags({ jobs }) {
 }
 
 export async function getStaticProps() {
+
   return {
     props: {
-      jobs: getJobs(),
+      tags: await getVacancyTags(),
+      config: await getConfig(),
     },
   };
 }

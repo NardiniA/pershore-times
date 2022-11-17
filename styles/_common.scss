@@ -46,7 +46,7 @@ ul, ol {
     margin-bottom: 55px;
   }
   span {
-    background-image: url("data:image/svg+xml,%3Csvg width='298' height='32' viewBox='0 0 298 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17.1944C62.6418 7.28318 174.478 -8.49028 296 27' stroke='%23c8d0f9' stroke-width='9'/%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg width='298' height='32' viewBox='0 0 298 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 17.1944C62.6418 7.28318 174.478 -8.49028 296 27' stroke='%23f9c8c8' stroke-width='9'/%3E%3C/svg%3E%0A");
     background-size: 260px;
     background-repeat: no-repeat;
     background-position: bottom;
@@ -479,7 +479,7 @@ ul, ol {
         position: absolute;
       }
     }
-    cite {
+    cite, p:last-child {
       display: block;
       margin-top: 10px !important;
       font-family: $font-secondary;
@@ -488,6 +488,11 @@ ul, ol {
       &::before {
         content: "— ";
         margin-right: 5px;
+        position: initial;
+        left: initial;
+        top: initial;
+        font-size: initial;
+        color: initial;
       }
     }
   }
@@ -580,6 +585,19 @@ ul, ol {
   }
   span:hover {
     text-decoration: underline;
+  }
+}
+
+.breadcrumb-menu.actions {
+  li:last-child {
+    a {
+      opacity: 1;
+      pointer-events: all;
+
+      i {
+        opacity: 0.7;
+      }
+    }
   }
 }
 
@@ -701,6 +719,58 @@ footer {
     color: rgba($dark, .7);
   }
 }
+
+.open-positions {
+  a {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba($color-primary, .25);
+    position: relative;
+    cursor: pointer;
+
+    &:first-child {
+      border-top: 1px solid rgba($color-primary, .25);
+    }
+
+    h4 {
+      color: $dark;
+    }
+
+    span {
+      color: $gray;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      left: -15px;
+      bottom: 0;
+      height: 0;
+      width: calc(100% + 30px);
+      background-color: rgba($color-primary, .15);
+      transition: .3s;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      height: 100%;
+      bottom: auto;
+      top: 0;
+    }
+  }
+
+  .tagname {
+    a {
+      border-top: none;
+    }
+
+    &:nth-child(1) a, &:nth-child(2) {
+      border-top: 1px solid rgba($color-primary, .25);
+    }
+  }
+}
+
+
 
 
 // 404 page style

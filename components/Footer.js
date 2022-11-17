@@ -1,8 +1,7 @@
-import siteConfig from "@/config/site.config.json";
 import subscription from "@/config/subscription.json";
 import { IconUserPlus } from "@tabler/icons";
 
-export default function Footer() {
+export default function Footer({ config }) {
   return (
     <footer>
       <div className="container">
@@ -84,7 +83,7 @@ export default function Footer() {
           <div className="row">
             <div className="col-lg-12 text-center">
               <p className="mb-0 copyright-text content">
-                {siteConfig.copyright}
+                {config.Copyright}
               </p>
             </div>
           </div>

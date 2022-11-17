@@ -4,8 +4,8 @@ export const sortByDate = (a, b) => {
     month: "short",
     day: "numeric",
   });
-  const dateA = new Date(a.frontMatter.date);
-  const dateB = new Date(b.frontMatter.date);
+  const dateA = new Date(a.attributes.Date);
+  const dateB = new Date(b.attributes.Date);
   longEnUSFormatter.format(dateA);
   longEnUSFormatter.format(dateB);
 

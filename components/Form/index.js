@@ -7,23 +7,23 @@ import { IconBrandTelegram } from "@tabler/icons";
 const Form = ({ form }) => {
   return (
     <div className="col-lg-5 me-lg-auto ms-lg-0 ms-auto">
-      <h2 className="h3 mb-4">{form.title}</h2>
+      <h2 className="h3 mb-4">{form.Title}</h2>
 
       <form
         className="row g-4"
-        action={`https://airform.io/${form.action}`}
+        action={`https://airform.io/${form.Destination}`}
         method="POST"
         target="_blank"
       >
-        {form?.fields &&
-          form?.fields.map((field, index) => {
-            switch (field.template) {
-              case "input":
-                return <Input field={field} key={field.template + index} />;
+        {form?.Fields &&
+          form?.Fields.map((field, index) => {
+            switch (field.Type) {
               case "textarea":
-                return <Textarea field={field} key={field.template + index} />;
+                return <Textarea field={field} key={field.Identifier + index} />;
               case "select":
-                return <Select field={field} key={field.template + index} />;
+                return <Select field={field} key={field.Identifier + index} />;
+              default:
+                return <Input field={field} key={field.Identifier + index} />;
             }
           })}
         <div className="col-12">

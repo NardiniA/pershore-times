@@ -1,21 +1,16 @@
 import React from "react";
+import { formatSize } from "@/utils/formatSize";
 
 const Textarea = ({ field }) => {
   return (
-    <div className="col-md-12">
+    <div className={formatSize(field.Size)}>
       <textarea
         className="form-control"
-        placeholder={field.placeholder}
-        rows={field?.config.rows}
-        name={field.name}
-        id={field.id}
-        required={field?.config.required}
-        minLength={
-          field?.config.minimum !== "0" ? field?.config.minimum : undefined
-        }
-        maxLength={
-          field?.config.maximum !== "0" ? field?.config.maximum : undefined
-        }
+        placeholder={field.Placeholder}
+        name={field.Name}
+        id={field.Identifier}
+        required={field.Required}
+        rows="4"
       ></textarea>
     </div>
   );

@@ -1,34 +1,31 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import Job from '@/components/Job';
 import Layout from '@/components/Layout';
-import { getJobs } from '@/libs/getJobs';
-import { getEmployers } from '@/libs/getEmployers';
 import PageHeaderTaxo from '@/components/PageHeaderTaxonomy';
+import { getVacancyTagsPaths } from "@/libs/getVacancyTagsPaths";
+import { getSingle } from '@/libs/getSingle';
+import { getConfig } from '@/libs/getConfig';
+import Vacancy from '@/components/Vacancy';
 
-export default function TagSingle({ employers, jobs, tag }) {
-  let flatJobs = jobs.flat();
-  function getUniqueJobsBy(flatJobs, key) {
-    return [...new Map(flatJobs.map((item) => [item[key], item])).values()];
-  }
-  const uniqueJobs = getUniqueJobsBy(flatJobs, 'slug');
-
+export default function TagSingle({ tag, config }) {
+  console.log(tag);
   return (
     <Layout
-      metaTitle={`Showing jobs from - ${
-        tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ')
-      } | Pershore Times`}
+      metaTitle={`Showing vacancies from - ${tag.Name} | Upton Times`}
+      config={config}
     >
       <div className="container">
-        <PageHeaderTaxo title={tag} />
+        <PageHeaderTaxo title={tag.Name} />
 
-        <div className="row gy-5 gx-4 g-xl-5">
-          {uniqueJobs.map((job, i) => (
-            <div key={i} className="col-lg-6">
-              <Job job={job} employers={employers} />
+        <div className="row open-positions">
+          {tag?.vacancies?.data.map((vacancy, index) => (
+            <div className="col-lg-6 tagname" key={vacancy?.attributes.Title + index}>
+              <Vacancy vacancy={vacancy} />
             </div>
           ))}
+          {tag.vacancies?.data.length === 0 && (
+            <div className="col-lg-12 text-center">
+              <h3>No Vacancies Available</h3>
+            </div>
+          )}
         </div>
       </div>
     </Layout>
@@ -36,25 +33,7 @@ export default function TagSingle({ employers, jobs, tag }) {
 }
 
 export async function getStaticPaths() {
-  const file = fs.readdirSync(path.join('content/vacancies'));
-  const allTags = file.map((file) => {
-    const dirFileContents = fs.readFileSync(
-      path.join('content/vacancies', file),
-      'utf-8'
-    );
-    const { data: frontmatter } = matter(dirFileContents);
-
-    return frontmatter.tags;
-  });
-
-  const flatTags = allTags.flat();
-  const uniqueTags = [...new Set(flatTags)];
-
-  const paths = uniqueTags.map((t) => ({
-    params: {
-      tagname: t.toString().replace(/ /g, '-').toLowerCase(),
-    },
-  }));
+  const paths = await getVacancyTagsPaths();
 
   return {
     paths,
@@ -62,33 +41,13 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
-  const file = fs.readdirSync(path.join('content/vacancies'));
-  const jobs = file.map((file) => {
-    const dirFileContents = fs.readFileSync(
-      path.join('content/vacancies', file),
-      'utf-8'
-    );
-    const { data: frontMatter } = matter(dirFileContents);
-    const filterFm = frontMatter.tags.filter(
-      (c) => c.toLowerCase().replace(/ /g, '-') === params.tagname
-    );
-
-    const job = getJobs();
-    const data = job.filter((e) => {
-      return e.frontMatter.tags.some((a) => {
-        return filterFm.indexOf(a) != -1;
-      });
-    });
-
-    return data;
-  });
+export async function getStaticProps({ params: { tagname } }) {
+  const tag = await getSingle(tagname, "tags-vacancies");
 
   return {
     props: {
-      employers: getEmployers(),
-      jobs: jobs,
-      tag: params.tagname,
+      tag: tag?.attributes,
+      config: await getConfig(),
     },
   };
 }

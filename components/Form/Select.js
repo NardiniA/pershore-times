@@ -1,3 +1,4 @@
+import { formatSize } from "@/utils/formatSize";
 import React from "react";
 import Select from "react-select";
 
@@ -33,15 +34,20 @@ const selectStyles = {
 }
 
 const Input = ({ field }) => {
+  const opts = field.Options.split(", ");
+  const options = opts.map((opt) => ({
+    label: opt,
+    value: opt,
+  }));
   return (
-    <div className="col-md-12">
+    <div className={formatSize(field.Size)}>
       <Select
         styles={selectStyles}
-        options={field?.options}
-        name={field.name}
-        id={field.id}
-        placeholder={field.placeholder}
-        required={field?.config?.required.value}
+        options={options}
+        name={field.Name}
+        id={field.Identifier}
+        placeholder={field.Placeholder}
+        required={field.Required}
       />
     </div>
   );

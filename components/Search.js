@@ -4,71 +4,27 @@ import { IconX } from "@tabler/icons";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
-import { posts } from "../cache/data";
+import { client } from "@/libs/searchClient";
 
-export default function Search() {
+export default function Search({ tags }) {
   const { toggleSearch } = useContext(AppContext);
   const [searchOpen, setSearchOpen] = toggleSearch;
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [showSearchResults, setshowSearchResults] = useState([]);
-
-  // Get Post Tags
-  const allTags = posts.map((tag) => tag.frontMatter.tags);
-  const flatTags = allTags.flat();
-  const uniqueTags = [...new Set(flatTags)];
-
-  // Get Post Categories
-  const allCategories = posts.map(
-    (category) => category.frontMatter.categories
-  );
-  const flatCategories = allCategories.flat();
-  const uniqueCategories = [...new Set(flatCategories)];
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    const getResults = async () => {
-      const res = await fetch("/api/search");
-      const post = await res.json();
-      setshowSearchResults(post);
-    };
-    getResults();
-  }, []);
-
-  const searchResults = showSearchResults.filter((searchResult) => {
-    if (searchTerm === "") {
-      return "";
-    } else if (
-      searchResult.frontMatter.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    ) {
-      return searchResult;
-    } else if (
-      searchResult.frontMatter.description
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    ) {
-      return searchResult;
-    } else if (
-      searchResult.frontMatter.author
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    ) {
-      return searchResult;
-    } else if (
-      searchResult.frontMatter.tags[0]
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    ) {
-      return searchResult;
-    } else if (
-      searchResult.frontMatter.categories[0]
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    ) {
-      return searchResult;
+    if (searchTerm !== "") {
+      try {
+      client.index("blog").search(searchTerm).then((results) => {
+        console.log(results.hits);
+        setSearchResults(results.hits);
+      });
+    } catch (error) {
+      console.error(error);
     }
-  });
+    }
+  }, [searchTerm]);
 
   // search input focus
   searchOpen
@@ -101,7 +57,7 @@ export default function Search() {
         <input
           type="text"
           value={searchTerm}
-          placeholder="Type to search blog.."
+          placeholder="Type to search today.."
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
@@ -121,22 +77,28 @@ export default function Search() {
                   className="search-result-card col-xl-2 col-lg-3 col-sm-4 col-12"
                   onClick={() => resetSearchInput(true)}
                 >
-                  <Link href={`/blog/${r.slug}`}>
-                    <a title={r.frontMatter.title}>
+                  <Link href={`/today/${r.Slug}`}>
+                    <a title={r.Title}>
                       <Image
                         className="rounded"
-                        src={r.frontMatter.image}
-                        alt={r.frontMatter.title}
+                        src={r?.Image.url.replace(
+                          "https://res.cloudinary.com/antonio-nardini/image/upload",
+                          ""
+                        )}
+                        alt={r.Title}
                         width={`190`}
                         height={`100`}
                         layout="responsive"
                         placeholder="blur"
-                        blurDataURL={r.frontMatter.image}
+                        blurDataURL={r?.Image.url.replace(
+                          "https://res.cloudinary.com/antonio-nardini/image/upload",
+                          ""
+                        )}
                       />
                       <span className="d-inline-block mt-2 mb-1 small">
-                        {formatDate(r.frontMatter.date)}
+                        {formatDate(r.Date)}
                       </span>
-                      <p className="h5 mb-0">{r.frontMatter.title}</p>
+                      <p className="h5 mb-0">{r.Title}</p>
                     </a>
                   </Link>
                 </div>
@@ -151,41 +113,24 @@ export default function Search() {
           )}
         </div>
 
-        <div className="mt-4 pt-3 card-meta">
-          <p className="h4 mb-3">See posts by tags</p>
-          <ul className="card-meta-tag list-inline">
-            {uniqueTags.map((item, i) => (
-              <li
-                key={i}
-                className="list-inline-item me-1 mb-2"
-                onClick={() => resetSearchInput(true)}
-              >
-                <Link href={`/tags/${item.replace(/ /g, "-").toLowerCase()}`}>
-                  <a className="small">{item}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-4 card-meta">
-          <p className="h4 mb-3">See posts by categories</p>
-          <ul className="card-meta-tag list-inline">
-            {uniqueCategories.map((item, i) => (
-              <li
-                key={i}
-                className="list-inline-item me-1 mb-2"
-                onClick={() => resetSearchInput(true)}
-              >
-                <Link
-                  href={`/categories/${item.replace(/ /g, "-").toLowerCase()}`}
+        {tags && (
+          <div className="mt-4 pt-3 card-meta">
+            <p className="h4 mb-3">See posts by tags</p>
+            <ul className="card-meta-tag list-inline">
+              {tags.map((item, i) => (
+                <li
+                  key={i}
+                  className="list-inline-item me-1 mb-2"
+                  onClick={() => resetSearchInput(true)}
                 >
-                  <a className="small">{item}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <Link href={`/today/tags/${item.slug.toLowerCase()}`}>
+                    <a className="small">{item.name}</a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </>
   );

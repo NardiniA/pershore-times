@@ -1,15 +1,12 @@
 {
   "metaData": {
-    "title": "Pershore Times | Local News Online",
-    "description": "Pershore Times - you're local news online.",
-    "author": "Antonio Nardini",
+    "title": "Upton Times | Local News Online",
+    "description": "Upton Times - you're local news online.",
+    "author": "Hughes & Company",
     "keyword": "pershore times, minimal, react, nextjs, blog, template",
-    "ogImage": "https://qurno-nextjs.vercel.app/images/ogimage.jpg"
+    "ogImage": "https://res.cloudinary.com/antonio-nardini/image/upload/v1667838200/upton_times_logo_c07f339167.png"
   },
-  "baseURL": "https://qurno.preview.antonionardini.com/",
-  "logo": "/v1662975682/pershore_times_logo-removebg-preview_oektok.png",
-  "logoText": "Pershore Times",
-  "favicon": "/v1663068921/favicon_duxwpt.ico",
-  "postPerPage": 6,
+  "logo": "https://res.cloudinary.com/antonio-nardini/image/upload/v1667838200/upton_times_logo_c07f339167.png",
+  "logoText": "Upton Times",
   "copyright": "© 2022 Pershore Times. All rights reserved."
 }

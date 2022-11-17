@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import ErrorPage from "@/components/ErrorPage";
+import { getStaticProps } from "./404";
 
 const error_data = {
     title: "500",
@@ -13,10 +14,12 @@ const error_data = {
     }
 }
 
-export default function ServerError() {
+export default function ServerError({ config }) {
   return (
-    <Layout metaTitle={"Server Error | Pershore Times"}>
+    <Layout metaTitle={"Server Error | Upton Times"} config={config}>
         <ErrorPage error={error_data} />
     </Layout>
   );
 }
+
+export { getStaticProps };

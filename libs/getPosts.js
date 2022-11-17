@@ -1,30 +1,24 @@
 import { sortByDate } from "@/utils/sortByDate";
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-import { formatAuthorName } from "./formatAuthorName";
 
-const blogDirFiles = fs.readdirSync(path.join("content/blog"));
-const blogs = blogDirFiles.filter((f) => f.includes(".md"));
+export const getPosts = async () => {
+  const posts = await fetch(
+    `${process.env.STRAPI_ADMIN_URL}/api/blogs?populate=deep`
+  );
+  const res = await posts.json();
 
-export function getPosts() {
-  const returnDirFiles = blogs.map((filename) => {
-    const slug = filename.replace(".md", "");
-    const dirFileContents = fs.readFileSync(
-      path.join("content/blog", filename),
-      "utf8"
-    );
+  if (res) {
+    const blog = res?.data.map((post) => {
+      const { attributes } = post;
+      const { Slug, Body } = attributes;
 
-    const { data: frontMatter, content } = matter(dirFileContents);
+      return {
+        slug: Slug,
+        attributes,
+        content: Body,
+      };
+    });
 
-    return {
-      slug,
-      frontMatter: {
-        ...frontMatter,
-        author: formatAuthorName(frontMatter.author),
-      },
-      content,
-    };
-  });
-  return returnDirFiles.sort(sortByDate);
-}
+    return blog.sort(sortByDate);
+  }
+  return [];
+};

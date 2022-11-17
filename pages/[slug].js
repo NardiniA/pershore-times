@@ -1,20 +1,19 @@
 import Layout from "@/components/Layout";
-import { getPosts } from "@/libs/getPosts";
-import { getAuthors } from "@/libs/getAuthors";
-import { join } from "path";
-import fs from "fs";
-import matter from "gray-matter";
 import BlockZone from "@/components/BlockZone";
+import { getSingle } from "@/libs/getSingle";
+import { getPages } from "@/libs/getPages";
+import { getPosts } from "@/libs/getPosts";
+import { getConfig } from "@/libs/getConfig";
 
-export default function Slug({ frontMatter, posts, authors }) {
+export default function Slug({ data: { attributes }, posts, config }) {
     return (
       <Layout
-        metaTitle={frontMatter.title + " | Pershore Times"}
-        metaDescription={frontMatter.description}
+        metaTitle={attributes.Title + " | Upton Times"}
+        config={config}
       >
         <section>
           <div className="container">
-            <BlockZone sections={frontMatter?.sections} posts={posts} authors={authors} />
+            <BlockZone sections={attributes?.Sections} posts={posts} />
           </div>
         </section>
       </Layout>
@@ -22,34 +21,20 @@ export default function Slug({ frontMatter, posts, authors }) {
 }
 
 export async function getStaticPaths() {
-  const pageDirFiles = fs.readdirSync(join("content/pages"));
-  const pages = pageDirFiles.filter((f) => f.includes(".md"));
+    const paths = await getPages();
 
-  const paths = pages.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
+    return {
+      paths,
+      fallback: false,
+    }
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const fileContents = fs.readFileSync(
-    join("content/pages", slug + ".md"),
-    "utf8"
-  );
-
-  const { data: frontMatter } = matter(fileContents);
-
   return {
     props: {
-      frontMatter,
-      posts: getPosts(),
-      authors: getAuthors(),
-    },
-  };
+      data: await getSingle(slug, `pages-${process.env.STRAPI_ADMIN_LOCALE}`),
+      posts: await getPosts(),
+      config: await getConfig(),
+    }
+  }
 }

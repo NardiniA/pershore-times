@@ -1,37 +1,27 @@
 import React from "react";
 import dynamic from "next/dynamic";
 
-const BlockZone = ({ sections, posts, authors }) => {
+const BlockZone = ({ sections, posts }) => {
   return (
     sections &&
     sections.map((section, index) => {
-      const id = section.template + index;
-      switch (section.template) {
-        case "banner":
+      const id = section.__component + index;
+      switch (section.__component) {
+        case "sections.banner":
           const BannerBlock = dynamic(() => import("@/components/Banner"));
-          return <BannerBlock banner={{ frontMatter: section }} key={id} />;
-        case "page-header":
+          return <BannerBlock banner={section} key={id} />;
+        case "sections.page-header":
           const PageHeaderBlock = dynamic(() =>
             import("@/components/PageHeader")
           );
-          return <PageHeaderBlock title={section.title} key={id} />;
-        case "contact":
+          return <PageHeaderBlock title={section.Title} key={id} />;
+        case "sections.contact":
           const Contact = dynamic(() => import("@/components/pages/Contact"));
           return <Contact section={section} key={id} />;
-        case "about":
+        case "sections.about":
           const About = dynamic(() => import("@/components/pages/About"));
           return <About section={section} key={id} />;
-        case "writers":
-          const Writers = dynamic(() => import("@/components/pages/Writers"));
-          return (
-            <Writers
-              section={section}
-              posts={posts}
-              authors={authors}
-              key={id}
-            />
-          );
-        case "recent-posts":
+        case "sections.recent-posts":
           const RecentPosts = dynamic(() =>
             import("@/components/pages/RecentPosts")
           );
@@ -39,11 +29,10 @@ const BlockZone = ({ sections, posts, authors }) => {
             <RecentPosts
               section={section}
               posts={posts}
-              authors={authors}
               key={id}
             />
           );
-        case "detail":
+        case "sections.detail":
           const Detail = dynamic(() => import("@/components/pages/Detail"));
           return <Detail section={section} key={id} />;
       }

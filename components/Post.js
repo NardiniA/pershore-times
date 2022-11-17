@@ -7,28 +7,31 @@ import Link from "next/link";
 
 export default function Post({
   post: {
-    slug,
-    content,
-    frontMatter: { title, image, date, author, description, tags },
+    attributes: { Title, Slug, Date, Excerpt, Image: { data }, Alt, Body, tags },
   },
-  authors,
 }) {
   return (
     <>
       <article className="card post-card h-100 border-0 bg-transparent">
         <div className="card-body">
-          <Link href={`/blog/${slug}`}>
-            <a className="d-block" title={title}>
+          <Link href={`/today/${Slug}`}>
+            <a className="d-block" title={Title}>
               <div className="post-image position-relative">
                 <Image
                   className="rounded"
-                  src={image}
-                  alt={title}
-                  width={`790`}
-                  height={`500`}
+                  src={data?.attributes.url.replace(
+                    "https://res.cloudinary.com/antonio-nardini/image/upload",
+                    ""
+                  )}
+                  alt={Alt}
+                  width={data?.attributes.width}
+                  height={data?.attributes.height}
                   layout="responsive"
                   placeholder="blur"
-                  blurDataURL={image}
+                  blurDataURL={data?.attributes.url.replace(
+                    "https://res.cloudinary.com/antonio-nardini/image/upload",
+                    ""
+                  )}
                 />
               </div>
             </a>
@@ -39,61 +42,34 @@ export default function Post({
               <i className="me-2">
                 <IconCalendarEvent size={18} />
               </i>
-              <span>{formatDate(date)}</span>
+              <span>{formatDate(Date)}</span>
             </li>
             <li className="list-inline-item mt-2">—</li>
             <li className="list-inline-item mt-2">
               <i className="me-2">
                 <IconClock size={18} />
               </i>
-              <span>{readingTime(content)} min read</span>
+              <span>{readingTime(Body)} min read</span>
             </li>
           </ul>
 
-          <Link href={`/blog/${slug}`}>
-            <a className="d-block" title={title}>
-              <h3 className="post-title mb-3">{title}</h3>
+          <Link href={`/today/${Slug}`}>
+            <a className="d-block" title={Title}>
+              <h3 className="post-title mb-3">{Title}</h3>
             </a>
           </Link>
-          <p>{truncateString(description, 150)}</p>
+          <p>{truncateString(Excerpt, 150)}</p>
         </div>
         <div className="card-footer border-top-0 bg-transparent p-0">
           <ul className="card-meta list-inline">
-            <li className="list-inline-item mt-2">
-              <Link href={`/author/${author.replace(/ /g, "-").toLowerCase()}`}>
-                <a
-                  className="card-meta-author"
-                  title={`Read all posts by - ${author}`}
-                >
-                  {authors.map((authorPage, i) =>
-                    author.replace(/ /g, "-").toLowerCase() ===
-                    authorPage.authorSlug ? (
-                      <span key={i}>
-                        <Image
-                          src={authorPage.authorFrontMatter.image}
-                          alt={author}
-                          width="26"
-                          height="26"
-                          layout="fixed"
-                        />
-                      </span>
-                    ) : (
-                      ""
-                    )
-                  )}
-                  <i className="d-inline-block ms-2 ps-1 fst-normal">
-                    by <span>{author.split(" ")[0]}</span>
-                  </i>
-                </a>
-              </Link>
-            </li>
+            <li className="list-inline-item mt-2">Tags</li>
             <li className="list-inline-item mt-2">•</li>
             <li className="list-inline-item mt-2">
               <ul className="card-meta-tag list-inline">
-                {tags.map((t, i) => (
+                {tags?.data.map((t, i) => (
                   <li key={i} className="list-inline-item small">
-                    <Link href={`/tags/${t.replace(/ /g, "-").toLowerCase()}`}>
-                      <a>{t}</a>
+                    <Link href={`/today/tags/${t?.attributes.Slug.toLowerCase()}`}>
+                      <a>{t?.attributes.Name}</a>
                     </Link>
                   </li>
                 ))}
